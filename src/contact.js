@@ -9,7 +9,7 @@ Contact = ( function (self) {
 
     self.Contact = function (value, value2, value3) {
 
-        var id, gender, firstname, lastname, init, mail, phone;
+        var numid, gender, firstname, lastname, init, mail, phone, Contacts;
 
         this.gender = function () {
             return gender;
@@ -43,6 +43,19 @@ Contact = ( function (self) {
             phone.push(value5);
         }
 
+        this.addPhone = function(contact){
+            phone.push(contact);
+        }
+
+
+
+        var id= function(){
+            return id ='xxxx-xxxx-xxxx-xxxx-xxxx'. replace (/x/g , function (c) {
+                var r = Math . random () *16|0 , v = c == 'x' ? r : (r&0x3|0x8);
+                return v.toString (16) ;
+            });
+        };
+
 
         // dans test.js on a dans le test testInitContact on utilise Contact.Contact(Contact.Gender.MR, 'Eric','Ramat') donc on va créé une fonction Contact qui va assigner la personne
         init = function (value, value2, value3) {
@@ -50,14 +63,13 @@ Contact = ( function (self) {
             firstname = value2;
             lastname = value3;
 
-            id ='xxxx - xxxx - xxxx - xxxx - xxxx'. replace (/ x /g , function ( c ) {
-                var r = Math . random () *16|0 , v = c == 'x' ? r : (r&0x3|0x8);
-                return v.toString (16) ;
-            });
 
+            numid=id();
             mail = new Array(0);
             phone = new Array(0);
         };
+
+
 
         init(value, value2, value3);
 
