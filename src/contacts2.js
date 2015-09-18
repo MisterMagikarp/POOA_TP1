@@ -12,6 +12,10 @@ Contact = (function (self) {
             l = [];
         };
 
+        this.list = function () {
+            return l;
+        };
+
         this.size = function () {
             return l.length;
         };
@@ -33,9 +37,10 @@ Contact = (function (self) {
             return strategie.search(l);
         };
 
-        this.list = function(){
-            return l;
+        this.change = function (prenom, nom , numero, newNumero) {
+            return Contact.change(prenom, nom,numero,newNumero);
         };
+
 
         this.get = function (id) {
 
@@ -64,15 +69,10 @@ Contact = (function (self) {
             }
 
         };
-
-        this.change = function (prenom, nom, numero, newNum){
-         return Contact.ChangePhoneStrategy(prenom, nom, numero, newNum);
-        };
     };
 
     return self;
 }(Contact || {}));
-
 
 
 

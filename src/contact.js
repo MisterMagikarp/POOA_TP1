@@ -39,12 +39,20 @@ Contact = ( function (self) {
             return phone;
         };
 
-        this.add_phone = function (value5){
-            phone.push(value5);
+        this.add_phone = function (tel){
+            phone.push(tel);
         }
 
-        this.addPhone = function(contact){
-            phone.push(contact);
+        this.addPhone = function(tel){
+            phone.push(tel);
+        }
+
+        this.removePhone = function (tel) {
+            for (var iter = 0; iter < phone.length; iter++) {
+                if(phone[iter] === tel){
+                    phone[iter].pop();
+                }
+            }
         }
 
         this.FromNameSearchStrategy = function (nom, prenom){
