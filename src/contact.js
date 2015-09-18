@@ -47,6 +47,9 @@ Contact = ( function (self) {
             phone.push(contact);
         }
 
+        this.FromNameSearchStrategy = function (nom, prenom){
+
+        };
 
 
         var id= function(){
