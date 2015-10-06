@@ -16,6 +16,10 @@ Contact = (function (self) {
                 l = [];
             };
 
+            this.list = function(){
+              return l;
+            };
+
             this.size = function () {
                 return l.length;
             };
@@ -66,6 +70,11 @@ Contact = (function (self) {
            return strategy.search(l);
             };
 
+            var index =-1;
+
+            this.iterator = function(){
+               return new Contact.Iterator(l);
+            };
 
 
         };

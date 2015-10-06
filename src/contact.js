@@ -9,6 +9,18 @@ Contact = ( function (self) {
 
     self.Contact = function (value, value2, value3) {
 
+
+        this.list = function () {
+            return l;
+        };
+
+        this.toObjet = function(){
+            return {
+                "firstname": firstname,
+                "lastname": lastname
+            };
+
+        };
         var numid, gender, firstname, lastname, init, mail, phone, Contacts;
 
         this.gender = function () {
