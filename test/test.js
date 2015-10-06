@@ -250,6 +250,9 @@ ContactTestCase.prototype.testContactsProxy2 = function () {
     var strategy = new Contact.FromPhoneSearchStrategy('0612343000');
     var contact = proxyCache.search(strategy);
 
+   // console.log(contact2.firstName());
+    //console.log(contact2.phone()[0].number());
+
     assertTrue(typeof contact === 'object');
     assertEquals(contact.firstName(), 'Jean');
     assertEquals(contact.lastName(), 'DUPOND');
@@ -259,6 +262,9 @@ ContactTestCase.prototype.testContactsProxy2 = function () {
         '0612343000', '0612343010'));
 
     var contact2 = proxyCache.search(strategy);
+
+    //console.log(contact2.firstName());
+   // console.log(contact2.phone()[0].number());
 
     assertEquals(contact2, null);
 };

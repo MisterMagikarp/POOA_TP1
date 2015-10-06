@@ -19,23 +19,43 @@ Contact = (function (self) {
         var cache = [];
         this.search = function (strategie) {
             var resultat = null;
-            for (var iter in tableauProxy) {
-                resultat = strategie.search(tableauProxy[iter].list());
+
+            if (this.inCache(strategie) && cache[strategie] !== null) {
+                return cache[strategie];
+            }
+
+           // console.log(tableauProxy.length);
+
+            for (var i=0; i<tableauProxy.length; i++) {
+
+               // console.log(tableauProxy[i].list().length);
+
+                resultat = strategie.search(tableauProxy[i].list());
+
                 if (resultat !== null) {
-                    cache.push(strategie);
+                    cache[strategie] = resultat;
+                    resultat.register(this);
                     return resultat;
                 }
             }
             return resultat;
         };
 
-        this.inCache = function (strategie){
-            for (var iter=0;iter<cache.length;iter++) {
-                if (cache[iter] === strategie) {
-                    return true;
-                }
-            }return false;
+        this.inCache = function (strategie) {
+            if(cache[strategie] !== undefined){
+                return true;
+            }
+          return null;
         }
+
+        this.notified = function(contact){
+            for(var i in cache){
+                if (cache[i] === contact){
+                    cache[i] = null;
+                }
+            }
+        };
+
         init(tableauContact);
     };
     return self;

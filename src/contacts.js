@@ -66,6 +66,8 @@ Contact = (function (self) {
            return strategy.search(l);
             };
 
+
+
         };
 
 

@@ -37,8 +37,8 @@ Contact = (function (self) {
             return strategie.search(l);
         };
 
-        this.change = function (prenom, nom , numero, newNumero) {
-            return Contact.change(prenom, nom,numero,newNumero);
+        this.change = function (changement) {
+            return changement.change(l);
         };
 
 
@@ -50,6 +50,16 @@ Contact = (function (self) {
                     return l[iter];
                 }
             }
+        };
+
+
+        this.contientTag = function(tag){
+            for (var i = 0; i < l.length; i++) {
+                if (l[i].tag() === tag) {
+                    return true;
+                }
+            }
+            return false;
         };
 
 

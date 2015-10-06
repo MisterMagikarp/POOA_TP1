@@ -80,7 +80,32 @@ Contact = ( function (self) {
             phone = new Array(0);
         };
 
+        this.changePhone = function(numero,newnumero){
+            for (var iter = 0; iter < phone.length; iter++) {
+                if(phone[iter].number() === numero){
+                    phone[iter] = new Contact.Phone(newnumero,phone[iter].type(), phone[iter].category());
+                }
+            }
 
+            for (var i =0; i < observer.length; i++){
+                observer[i].notified(this);
+            }
+
+        };
+        var observer=[];
+        this.register = function(proxy){
+            observer.push(proxy);
+        };
+
+        var tag;
+
+        this.addTag = function(tag1){
+            tag = tag1;
+        };
+
+        this.tag = function(){
+            return tag;
+        };
 
         init(value, value2, value3);
 

@@ -6,9 +6,11 @@ var Contact = Contact || {};
 Contact = (function (self) {
     "use strict";
     self.ChangePhoneStrategy = function (prenom, nom, numero, newnumero) {
-        this.change = function(prenom, nom, numero, newnumero){
-            var contact = Contact.FromNameSearchStrategySearchStrategy(prenom,nom);
-            console.log(contact);
+        this.change = function(liste){
+            var contact = new Contact.FromPhoneSearchStrategy(numero).search(liste);
+            contact.changePhone(numero, newnumero);
+
+
 
         };
     };
